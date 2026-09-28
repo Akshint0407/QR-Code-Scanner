@@ -1,0 +1,12 @@
+Results for THE BEAST (YOLO + zxing > wechat > pyzbar > opencv cascade)
+----------------------
+Total Images        : 3686
+Detected            : 3675
+Not Detected        : 11
+Decoded             : 2285
+Not Decoded         : 1390
+Detector Accuracy   : 99.70%
+Decoder Accuracy    : 62.18%
+Overall Decode Rate : 61.99%
+Fallback saves      : 23
+Variant saves       : 221
