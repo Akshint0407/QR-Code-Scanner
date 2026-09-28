@@ -1,0 +1,10 @@
+# QR Scanner — requirements (Python 3.9)
+
+opencv-python==4.10.0.84
+opencv-contrib-python==4.10.0.84
+numpy==1.26.4
+pyzbar==0.1.9
+zxing-cpp==2.2.2
+ultralytics==8.3.40
+torch==2.1.2
+torchvision==0.16.2
