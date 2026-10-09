@@ -42,7 +42,7 @@ wechat = cv2.wechat_qrcode_WeChatQRCode(
     wechat_detect_prototxt, wechat_detect_caffemodel,
     wechat_sr_prototxt, wechat_sr_caffemodel
 )
-qr_detector_cv = cv2.QRCodeDetector()
+qr_detector_cv = cv2.QRCodeDetectorAruco()
 
 # ============ DECODERS (priority order: zxing > wechat > pyzbar > opencv) ============
 
@@ -58,8 +58,29 @@ def dec_pyzbar(gray):
     return [o.data.decode("utf-8", "replace") for o in pyzbar_decode(gray) if o.data]
 
 def dec_opencv(gray):
-    data, _, _ = qr_detector_cv.detectAndDecode(gray)
-    return [data] if data else []
+    # Validate input: reject None, empty, tiny, or wrong-format images
+    if gray is None or gray.size == 0:
+        return []
+    if gray.ndim == 3:
+        gray = cv2.cvtColor(gray, cv2.COLOR_BGR2GRAY)
+    if gray.dtype != np.uint8:
+        gray = gray.astype(np.uint8)
+    if gray.shape[0] < 50 or gray.shape[1] < 50:
+        return []
+
+    try:
+        retval, decoded_info, _, _ = qr_detector_cv.detectAndDecodeMulti(gray)
+        return [t for t in decoded_info if t] if retval else []
+    except cv2.error:
+        # detectAndDecodeMulti can crash on certain inputs (kmeans bug)
+        # fall back to the more stable single-QR detector
+        try:
+            text, _, _ = qr_detector_cv.detectAndDecode(gray)
+            return [text] if text else []
+        except cv2.error:
+            return []
+
+
 
 def var_sharpen(gray):
     """Unsharp mask — fixes mild/general blur. Strongest cheap fix."""
