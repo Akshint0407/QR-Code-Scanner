@@ -1,0 +1,93 @@
+Results CV only
+----------------------
+Total Images : 3635
+Detected      : 1623
+Not Detected  : 2012
+Decoded      : 779
+Not Decoded  : 0
+Detector Accuracy      : 44.65%
+Decoder Accuracy      : 48.00%
+
+Results for Yolo and CV
+----------------------
+Total Images      : 3635
+Detected          : 3484
+Not Detected      : 151
+Decoded           : 829
+Not Decoded       : 2655
+Detector Accuracy : 95.85%
+Decoder Accuracy  : 23.79%
+
+
+
+Results Wechat only
+----------------------
+Total QR codes: 3635
+Detected QR codes : 1407
+Decoded QR : 1407
+Detected Accuracy : 38.70701513067401
+Decoded Accuracy : 100.0
+
+Results (YOLO + WeChat)
+----------------------
+Total Images      : 3635
+Detected          : 3485
+Not Detected      : 150
+Decoded           : 1469
+Not Decoded       : 2016
+Detector Accuracy : 95.87%
+Decoder Accuracy  : 42.15%
+
+
+Results for pyzbar only
+----------------------
+Total Images : 3635
+Detected      : 1325
+Not Detected  : 2310
+Decoded      : 1325
+Not Decoded  : 0
+Detected Accuracy      : 36.45%
+Decoded Accuracy      : 100.00%
+
+Results for yolo + pyzbar
+----------------------
+Total Images        : 3635
+Detected            : 3484
+Not Detected        : 151
+Decoded             : 1562
+Not Decoded         : 1922
+Detected Accuracy   : 95.85%
+Decoded Accuracy    : 44.83%
+
+
+
+RESULTS for zxing only
+Total QR codes: 3635
+Detected QR codes : 1589
+Not Detected QR codes : 2046
+Decoded QR : 1589
+Not Decoded QR : 0
+Detected Accuracy : 43.713892709766164
+Decoded Accuracy : 100.0
+
+**************************RESULTS (YOLO + zxing hybrid):**************************
+Total QR codes: 3635
+Detected QR codes : 3485
+Not Detected QR codes : 150
+Decoded QR : 1644
+Not Decoded QR : 1841
+Detected Accuracy : 95.87345254470426
+Decoded Accuracy : 47.17360114777618
+
+
+
+========== BEAST RESULTS ==========
+Total Images        : 3635
+Detected            : 3485
+Not Detected        : 150
+Decoded             : 2014
+Not Decoded         : 1471
+Detector Accuracy   : 95.87%
+Decoder Accuracy    : 57.79%
+Overall Decode Rate : 55.41%
+Fallback saves      : 38
