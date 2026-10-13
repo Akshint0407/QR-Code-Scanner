@@ -1,0 +1,53 @@
+body {
+  background:
+    radial-gradient(900px 500px at 15% -10%, rgba(91, 91, 240, 0.28), transparent 60%),
+    radial-gradient(700px 400px at 100% 10%, rgba(45, 212, 191, 0.16), transparent 60%),
+    #0b1026;
+  min-height: 100vh;
+}
+.top-bar { border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+.hero-title { letter-spacing: -0.02em; line-height: 1.1; }
+
+/* the one memorable element: a scanner viewfinder */
+.viewfinder {
+  position: relative; width: 120px; height: 120px;
+  display: flex; align-items: center; justify-content: center;
+}
+.corner { position: absolute; width: 26px; height: 26px; border: 4px solid #2dd4bf; }
+.tl { top: 0; left: 0; border-right: 0; border-bottom: 0; border-top-left-radius: 10px; }
+.tr { top: 0; right: 0; border-left: 0; border-bottom: 0; border-top-right-radius: 10px; }
+.bl { bottom: 0; left: 0; border-right: 0; border-top: 0; border-bottom-left-radius: 10px; }
+.br { bottom: 0; right: 0; border-left: 0; border-top: 0; border-bottom-right-radius: 10px; }
+
+.panel { border: 1px solid rgba(255, 255, 255, 0.08); background-image: none; }
+.action-card { transition: transform 0.15s ease, border-color 0.15s ease; }
+.action-card:hover { transform: translateY(-3px); border-color: rgba(45, 212, 191, 0.5); }
+.reader { width: 100%; border-radius: 12px; overflow: hidden; }
+.result-card { border-color: rgba(45, 212, 191, 0.45); }
+.result-text { word-break: break-all; font-size: 1.1rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  .action-card { transition: none; }
+  .action-card:hover { transform: none; }
+}
+
+.info-section { margin-top: 6rem; scroll-margin-top: 1rem; }
+.faq { margin-bottom: 0.75rem; border-radius: 14px !important; }
+.faq::before { display: none; }
+.open-source { border-color: rgba(91, 91, 240, 0.5); }
+.site-footer { border-top: 1px solid rgba(255, 255, 255, 0.08); }
+.site-footer a { color: #2dd4bf; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* Generated QR preview: download button is faint until hover/focus */
+.qr-preview-wrap { position: relative; background: #fff; border-radius: 12px; padding: 12px; line-height: 0; }
+.qr-preview-img { width: 100%; height: auto; display: block; }
+.dl-btn {
+  position: absolute !important; top: 10px; right: 10px;
+  background: rgba(11, 16, 38, 0.55) !important; color: #fff !important;
+  opacity: 0.25; transition: opacity 0.2s ease;
+}
+.qr-preview-wrap:hover .dl-btn, .dl-btn:focus-visible { opacity: 1; background: rgba(11, 16, 38, 0.9) !important; }
+@media (hover: none) { .dl-btn { opacity: 0.85; } } /* touch screens have no hover */
+.gen-btn { color: #f5b94a !important; border-color: rgba(245, 185, 74, 0.6) !important; }
